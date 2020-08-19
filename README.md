@@ -27,21 +27,6 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-
-### Association
-
-- has_many :items
-- has_one :profiel
-- has_one :creditcard
-- has_one :buyer
-
-## profiels テーブル
-
 | Column                | Type        | Options                            |
 | --------------------- | ----------- | ---------------------------------- |
 | nickname              | string      | null: false                        |
@@ -55,35 +40,38 @@ Things you may want to cover:
 | birthday              | integer     | null: false                        |
 | birthmonth            | integer     | null: false                        |
 | birthyear             | integer     | null: false                        |
-| user_id               | referencese | null: false, foreign_key: true     |
 
 ### Association
 
-- belongs_to :user
+- has_many :items
+- has_one :item_purchase
 
 ## items テーブル
 
-| Colum    | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| name     | string     | null: false                    |
-| image    | string     | null: false                    |
-| content  | string     | null: false                    |
-| category | string     | null: false                    |
-| status   | string     | null: false                    |
-| price    | integer    | null: false                    |
-| user_id  | references | null: false, foreign_key: true |
+| Colum               | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| name                | string     | null: false                    |
+| image               | string     | null: false                    |
+| content             | text       | null: false                    |
+| category            | string     | null: false                    |
+| status              | string     | null: false                    |
+| shipping_fee_burden | string     | null: false                    |
+| shipping_origin     | string     | null: false                    |
+| shipping_days       | string     | null: false                    |
+| price               | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :buyer
+- has_one :item_purchase
 
-## buyers テーブル
+## item_purchases テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -92,31 +80,15 @@ Things you may want to cover:
 
 ## shipping_addresses テーブル
 
-| Colum       | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| postal_code | string     | null: false                    |
-| prefecture  | string     | null: false                    |
-| city        | string     | null: false                    |
-| address     | string     | null: false                    |
-| building    | string     | null: false                    |
-| tel         | string     | null: false                    |
-| buyer_id    | references | null: false, foreign_key: true |
+| Colum         | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | text       |                                |
+| tel           | string     | null: false                    |
+| item_purchase | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :buyer
-
-## creditcards テーブル
-
-| Colum      | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user_id    | references | null: false, foreign_key: true |
-| buyer_id   | references | null: false, foreign_key: true |
-| number     | integer    | null: false                    |
-| expiration | integer    | null: false                    |
-| security   | integer    | null: false                    |
-
-### Association
-
-- belongs_to :user
-- belongs_to :buyer
+- belongs_to :item_purchase
