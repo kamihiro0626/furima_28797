@@ -37,14 +37,12 @@ Things you may want to cover:
 | family_name_kana      | string      | null: false                        |
 | first_name            | string      | null: false                        |
 | first_name_kana       | string      | null: false                        |
-| birthday              | integer     | null: false                        |
-| birthmonth            | integer     | null: false                        |
-| birthyear             | integer     | null: false                        |
+| birthday              | date        | null: false                        |
 
 ### Association
 
 - has_many :items
-- has_one :item_purchase
+- has_many :item_purchases
 
 ## items テーブル
 
@@ -55,9 +53,9 @@ Things you may want to cover:
 | content             | text       | null: false                    |
 | category            | string     | null: false                    |
 | status              | string     | null: false                    |
-| shipping_fee_burden | string     | null: false                    |
-| shipping_origin     | string     | null: false                    |
-| shipping_days       | string     | null: false                    |
+| shipping_fee_burden | integer    | null: false                    |
+| shipping_origin     | integer    | null: false                    |
+| shipping_days       | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
@@ -77,15 +75,17 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
+- has_one :shipping_address
 
 ## shipping_addresses テーブル
 
 | Colum         | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
+| prefecture    | integer    | null: false                    |
 | city          | string     | null: false                    |
 | address       | string     | null: false                    |
-| building      | text       |                                |
+| building      | string     |                                |
 | tel           | string     | null: false                    |
 | item_purchase | references | null: false, foreign_key: true |
 
