@@ -51,8 +51,8 @@ Things you may want to cover:
 | name                | string     | null: false                    |
 | image               | string     | null: false                    |
 | content             | text       | null: false                    |
-| category            | integer     | null: false                    |
-| status              | integer     | null: false                    |
+| category            | integer    | null: false                    |
+| status              | integer    | null: false                    |
 | shipping_fee_burden | integer    | null: false                    |
 | shipping_origin     | integer    | null: false                    |
 | shipping_days       | integer    | null: false                    |
