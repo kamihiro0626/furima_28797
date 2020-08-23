@@ -4,15 +4,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/
+  VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
+  VALID_KATAKANA_REGEX = /\A[ァ-ヶー－]+\z/
+  
   with_options presence: true do
    validates :nickname
    validates :email
-   validates :password,format: { with: /\A[a-z0-9]+\z/ }
-   validates :password_confirmation, format: { with: /\A[a-z0-9]+\z/ }
-   validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-   validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-   validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
-   validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+   validates :password,format: { with: VALID_PASSWORD_REGEX }
+   validates :password_confirmation, format: { with: VALID_PASSWORD_REGEX }
+   validates :family_name, format: { with: VALID_NAME_REGEX }
+   validates :first_name, format: { with: VALID_NAME_REGEX }
+   validates :family_name_kana, format: { with: VALID_KATAKANA_REGEX }
+   validates :first_name_kana, format: { with: VALID_KATAKANA_REGEX }
    validates :birthday
   end
 

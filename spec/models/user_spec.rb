@@ -35,6 +35,11 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
+      it "passwordが6文字以上であれば登録できること" do
+        @user.password = "123456"
+        @user.password_confirmation = "123456"
+        expect(@user).to be_valid
+      end
       it "passwordが5文字以下であれば登録できないこと" do  
         @user.password = "12345"
         @user.password_confirmation = "12345"
