@@ -12,4 +12,5 @@ class Item < ApplicationRecord
  with_options numericality: { other_than: 1 } do
   validates :category, :status, :shipping_fee_burden, :shipping_origin, :shipping_days
  end
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 } 
 end
