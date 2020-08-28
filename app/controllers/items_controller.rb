@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.order("create_at DESC")
+    @items = Item.all
   end
 
   def new
@@ -17,6 +18,15 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
   end
 
   def move_to_index
