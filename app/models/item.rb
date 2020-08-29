@@ -27,7 +27,7 @@ class Item < ApplicationRecord
     validates :status_id
     validates :shipping_fee_burden_id
     validates :shipping_origin_id
-    validates :shipping_days_id
+    validates :shipping_day_id
     validates :price, format: { with: /\d/ }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 } 
     validates :user_id
   end
@@ -37,6 +37,6 @@ class Item < ApplicationRecord
   validates :status_id
   validates :shipping_fee_burden_id
   validates :shipping_origin_id 
-  validates :shipping_days_id
+  validates :shipping_day_id
  end
 end

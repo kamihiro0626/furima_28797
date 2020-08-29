@@ -40,12 +40,11 @@ ActiveRecord::Schema.define(version: 2020_08_24_084409) do
     t.integer "status_id", null: false
     t.integer "shipping_fee_burden_id", null: false
     t.integer "shipping_origin_id", null: false
-    t.integer "shipping_days_id", null: false
+    t.integer "shipping_day_id", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
