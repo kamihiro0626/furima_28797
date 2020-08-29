@@ -66,15 +66,15 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipping origin must be other than 1")
     end
-    it "shipping_days_idが空では登録できないこと" do
+    it "shipping_day_idが空では登録できないこと" do
       @item.shipping_days_id = ""
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping days can't be blank")
+      expect(@item.errors.full_messages).to include("Shipping day can't be blank")
     end
-    it "shipping_days_idが{ id: 1, name: '---' }のとき登録できないこと" do
+    it "shipping_day_idが{ id: 1, name: '---' }のとき登録できないこと" do
       @item.shipping_days_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping days must be other than 1")
+      expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
     end
     it "priceが空では登録できないこと" do
       @item.price = nil

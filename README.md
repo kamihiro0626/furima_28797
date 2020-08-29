@@ -55,7 +55,7 @@ Things you may want to cover:
 | status              | integer    | null: false                    |
 | shipping_fee_burden | integer    | null: false                    |
 | shipping_origin     | integer    | null: false                    |
-| shipping_days       | integer    | null: false                    |
+| shipping_day        | integer    | null: false                    |
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
