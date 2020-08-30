@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit]
   
   def index
     @items = Item.all.order("created_at DESC")
@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
 
   def show
     @seller = @item.user.nickname
+  end
+
+  def edit
+    
   end
 
   def move_to_index
