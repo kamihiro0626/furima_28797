@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  describe '#create' do
+  describe '#create #update' do
     before do
       user = FactoryBot.create(:user)
       @item= FactoryBot.build(:item, user_id: user.id)
