@@ -10,7 +10,7 @@
       <%= image_tag @item.image ,class:"item-box-img" %>
 
       <%# 商品が売れている場合は、sold outの表示をしましょう。 %>
-       <% if @item_purchases.present? %>
+       <% if @item.item_purchase.present? %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
@@ -34,8 +34,8 @@
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% else user_signed_in? %>
-    <% unless @item_purchases.present? %>
-    <%= link_to '購入画面に進む', item_purchases_path ,class:"item-red-btn"%>
+    <% unless @item.item_purchase.present? %>
+    <%= link_to '購入画面に進む', item_item_purchase_path(@item.id), class:"item-red-btn"%>
     <% end%>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
     <% end %>
@@ -48,7 +48,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @seller %></td>
+          <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>

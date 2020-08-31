@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @seller = @item.user.nickname
+   
   end
 
   def edit
