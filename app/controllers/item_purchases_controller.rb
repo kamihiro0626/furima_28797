@@ -23,7 +23,7 @@ class ItemPurchasesController < ApplicationController
   private
 
   def user_restriction
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
        redirect_to root_path 
     end
