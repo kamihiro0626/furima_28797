@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items do
-    resources :item_purchases do
-      resources :shipping_addresses
-    end
+    resources :item_purchases
   end
   
   # resources :users
