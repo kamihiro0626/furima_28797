@@ -1,6 +1,6 @@
 class ItemPurchasesController < ApplicationController
-   before_action :move_to_sessions_index
-  #  before_action :move_to_index
+   before_action :authenticate_user!
+   before_action :user_restriction
 
 
   def show
@@ -11,7 +11,6 @@ class ItemPurchasesController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @item_purchase = PurchaseAddress.new(purchase_params)
-    # binding.pry
     if @item_purchase.valid?
       pay_item
       @item_purchase.save
@@ -23,17 +22,12 @@ class ItemPurchasesController < ApplicationController
 
   private
 
-  def move_to_sessions_index
-    unless user_signed_in? 
-      redirect_to new_user_session_path
+  def user_restriction
+    @item = Item.find(params[:id])
+    if current_user.id == @item.user_id
+       redirect_to root_path 
     end
   end
-
-  # def move_to_index
-  #   if current_user.id == @item.user.id
-  #     redirect_to root_path
-  #   end
-  # end
 
   def purchase_params
     params.permit(
