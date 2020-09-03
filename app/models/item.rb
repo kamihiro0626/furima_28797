@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_day
   belongs_to :user, optional: true
   has_one_attached :image
-  has_one :item_purchase
+  has_one :item_purchase, dependent: :destroy
 
   validate :image_presence
 
