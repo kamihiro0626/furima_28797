@@ -1,6 +1,7 @@
 class ItemPurchasesController < ApplicationController
    before_action :authenticate_user!
    before_action :user_restriction
+   before_action :move_to_index
 
 
   def show
@@ -26,6 +27,12 @@ class ItemPurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
        redirect_to root_path 
+    end
+  end
+
+  def move_to_index
+    if @item.item_purchase.present?
+      redirect_to root_path
     end
   end
 
