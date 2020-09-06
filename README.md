@@ -49,7 +49,6 @@ Things you may want to cover:
 | Colum               | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
 | name                | string     | null: false                    |
-| image               | string     | null: false                    |
 | content             | text       | null: false                    |
 | category            | integer    | null: false                    |
 | status              | integer    | null: false                    |
@@ -62,6 +61,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
+- has_one_attached :image
 - has_one :item_purchase
 
 ## item_purchases テーブル
