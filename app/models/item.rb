@@ -17,7 +17,7 @@ class Item < ApplicationRecord
         errors.add(:image, 'にはjpegまたはpngファイルを添付してください')
       end
     else
-      errors.add(:image, 'cannot be blank')
+      errors.add(:image, 'を選択してください')
     end
   end
 
@@ -33,7 +33,7 @@ class Item < ApplicationRecord
     validates :user_id
   end
 
- with_options numericality: { other_than: 1 } do
+ with_options numericality: { other_than: 1, message: "を選択してください"} do
   validates :category_id
   validates :status_id
   validates :shipping_fee_burden_id
