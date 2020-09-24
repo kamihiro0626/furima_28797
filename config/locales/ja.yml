@@ -1,0 +1,23 @@
+ja:
+   activerecord:
+     attributes:
+       item:
+        image: 画像
+        name: 商品名
+        content: 商品説明
+        price: 値段
+        category_id: カテゴリー
+        status_id: ステータス
+        shipping_fee_burden_id: 配送負担
+        shipping_origin_id: 配送元
+        #        models:
+        # item_purchase:
+        #          show:
+        #  shipping_day_id: 配送日数
+        #            token: トークン
+        #      postal_code: 郵便番号
+        #    prefecture_id: 都道府県
+        #             city: 市区町村
+        #          address: 番地
+        #         building: 建物
+        #        telephone: 電話番号
