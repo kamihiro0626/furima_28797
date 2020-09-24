@@ -10,6 +10,7 @@ ja:
         status_id: ステータス
         shipping_fee_burden_id: 配送負担
         shipping_origin_id: 配送元
+        shipping_day_id: 配送日数
         #        models:
         # item_purchase:
         #          show:
