@@ -1,28 +1,55 @@
 # README
+![furima](https://user-images.githubusercontent.com/69024430/96328717-0d9ab380-1081-11eb-8713-2a13cfbda195.jpg)
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
+フリマクローンサイト
 
-Things you may want to cover:
+# URL
+ http://3.114.40.91/
 
-* Ruby version
+# 機能一覧
+- ユーザー管理機能
+- 商品出品機能(Active Storage)
+- 商品一覧表示機能
+- 商品詳細表示機能
+- 商品情報編集機能
+- 商品削除機能
+- 商品購入機能
+- BASIC認証の導入
+- EC2
+- エラーハンドリングの日本語化
+- S3への保存
 
-* System dependencies
+# 環境・使用技術
 
-* Configuration
+### フロントエンド
+* Bootsnap 1.4.2
+* SCSS (BEM)
+* JavaScript
 
-* Database creation
+### バックエンド
+* Ruby 2.6.5
+* Rails 6.0.0
 
-* Database initialization
+### 開発環境
+* MySQL2
 
-* How to run the test suite
+### 本番環境
+* AWS(EC2,S3)
+* MySQL2
+* Nginx、 Puma
 
-* Services (job queues, cache servers, search engines, etc.)
+### その他使用技術
+* 非同期通信（販売手数料、販売利益、プレビュー表示）
+* devise (ログイン・ログアウト機能)
+* Pay.jp（クレジット決済機能）
+* Rubocop-airbnb
+* チーム開発を意識したGitHubの活用 （プルリクエスト、イシュー、マージ）
 
-* Deployment instructions
+### テスト
+Rspec（単体）
 
-* ...
 
 # テーブル設計
 
